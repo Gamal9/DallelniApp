@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Padding="0,11" BackgroundColor="Black"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="بطاقتى" Icon="wallet.png"
+             x:Class="DallelniApp.View.WalletPage">
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.09*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" BackgroundColor="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="list.png" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="loupe.png" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit"/>
+            </Grid>
+            <Image Aspect="AspectFit" Grid.Column="1" Source="logo-EN-AR-2.png" HorizontalOptions="Fill" VerticalOptions="Center"/>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Picker SelectedIndex="0" Grid.Column="0" BackgroundColor="Black" Title="المدن" TextColor="White" HorizontalOptions="Fill">
+                    <Picker.Items>
+                        <x:String>جدة</x:String>
+                        <x:String>الدمام</x:String>
+                        <x:String>مكة</x:String>
+                        <x:String>المدينة</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Image Aspect="AspectFit" Grid.Column="1" Source="arrowDown.png" HorizontalOptions="Start" VerticalOptions="Center"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Padding="10">
+                <Frame CornerRadius="20" BackgroundColor="Black" BorderColor="Black">
+                    <Image Source="templatcard.png" Aspect="Fill"/>
+                </Frame>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image HorizontalOptions="Center" Grid.Row="0" VerticalOptions="Center" Source="QRcode.png" Aspect="AspectFit"/>
+                <Label Grid.Row="1" Text="أعرض هذا الرمز عند الأستفادة من العروض الخاصة بك" HorizontalTextAlignment="Center"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</ContentPage>

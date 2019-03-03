@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" BackgroundColor="Black" NavigationPage.HasNavigationBar="False"
+             FlowDirection="RightToLeft"
+             x:Class="DallelniApp.View.Register">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.09*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.12*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="previous.png" HorizontalOptions="Center" Aspect="AspectFit" Margin="5,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label HorizontalOptions="Fill" FontAttributes="Bold" Grid.Column="1" TextColor="Yellow" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="32" Text="عضو جديد"/>
+            
+        </Grid>
+
+        <ScrollView Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="White">
+            <StackLayout Margin="10">
+                <Frame CornerRadius="5" BorderColor="Black" Padding="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Grid.Column="0" x:Name="Lbl1"/>
+                        <Entry Placeholder="الأســـم الأول" Unfocused="EntryFName_Unfocused" Grid.Column="1" x:Name="EntryFName" PlaceholderColor="LightGray"  HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+                <Frame Padding="2" CornerRadius="5" BorderColor="Black" IsClippedToBounds="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" Grid.Column="0" x:Name="Lbl2"/>
+                        <Entry Grid.Column="1" Unfocused="EntryLName_Unfocused" Placeholder="أســـم العائلة" x:Name="EntryLName" PlaceholderColor="LightGray"  HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+                <Frame Padding="2" CornerRadius="5" BorderColor="Black" IsClippedToBounds="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" Grid.Column="0" x:Name="Lbl3"/>
+                        <Entry Unfocused="EntryBirth_Unfocused" Grid.Column="1" Placeholder="تاريخ الميلاد" x:Name="EntryBirth" PlaceholderColor="LightGray"  HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+                <Frame Padding="2" CornerRadius="5" BorderColor="Black" IsClippedToBounds="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" Grid.Column="0" x:Name="Lbl4"/>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="1" Source="downArrow.png" Aspect="AspectFit" BackgroundColor="Black"/>
+                            <Picker Grid.Column="0" Unfocused="PickGender_Unfocused" x:Name="PickGender" Title="الجنس" HorizontalOptions="FillAndExpand">
+                                <Picker.Items>
+                                    <x:String>ذكر</x:String>
+                                    <x:String>أنثى</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </Grid>
+                    </Grid>
+                </Frame>
+                <Frame Padding="2" CornerRadius="5" BorderColor="Black" IsClippedToBounds="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" Grid.Column="0" x:Name="Lbl5"/>
+                        <Entry Grid.Column="1" Unfocused="EntryEmail_Unfocused" Placeholder="البريد الإلكترونى" x:Name="EntryEmail" PlaceholderColor="LightGray"  HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+                <Frame Padding="2" CornerRadius="5" BorderColor="Black" IsClippedToBounds="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" Grid.Column="0" x:Name="Lbl6"/>
+                        <Entry Grid.Column="1" Unfocused="EntryPhone_Unfocused" Placeholder="رقم الجوال" x:Name="EntryPhone" PlaceholderColor="LightGray"  HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+                <Frame Padding="2" CornerRadius="5" BorderColor="Black" IsClippedToBounds="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" Grid.Column="0" x:Name="Lbl7"/>
+                        <Entry Grid.Column="1" Unfocused="EntryPass_Unfocused" Keyboard="Numeric" Placeholder="كلمة المرور" x:Name="EntryPass" PlaceholderColor="LightGray" IsPassword="True" HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+                <Frame Padding="2" CornerRadius="5" BorderColor="Black" IsClippedToBounds="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" Grid.Column="0" x:Name="Lbl8"/>
+                        <Picker x:Name="PickCountry" Grid.Column="1" Unfocused="PickCountry_Unfocused" Title="الدولة" HorizontalOptions="FillAndExpand">
+                            <Picker.Items>
+                                <x:String>السعودية</x:String>
+                                <x:String>الإمارات</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Grid>
+                </Frame>
+                <Frame Padding="2" CornerRadius="5" BorderColor="Black" IsClippedToBounds="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" Grid.Column="0" x:Name="Lbl9"/>
+                        <Picker x:Name="PickCity" Grid.Column="1" Unfocused="PickCity_Unfocused" Title="الدولة" HorizontalOptions="Fill">
+                            <Picker.Items>
+                                <x:String>أبو ظبي</x:String>
+                                <x:String>دبى</x:String>
+                                <x:String>الرياض</x:String>
+                                <x:String>جده</x:String>
+                                <x:String>مكة</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Grid>
+                </Frame>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="*" TextColor="Red" Grid.Column="0"/>
+                    <Label Grid.Column="1" Text="نوع العضوية" HorizontalOptions="Fill"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="*" TextColor="Red" Grid.Column="0"/>
+                    <Label Text="الموافقة على"  Grid.Column="1"/>
+                    <Label Grid.Column="2" Text="الشروط والأحكام" TextColor="Red"/>
+                    <Switch Grid.Column="3" x:Name="Swit"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="2" BackgroundColor="Yellow" x:Name="Next">
+            <Label HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="32" Text="متابعة الإشتراك"/>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Grid.GestureRecognizers>
+        </Grid>
+    </Grid>
+
+</ContentPage>

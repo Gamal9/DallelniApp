@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" BackgroundColor="Black"
+             x:Class="DallelniApp.WelcomePage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="AspectFit" Source="logo-EN-AR-2.png" Margin="20,0,20,0"/>
+        </Grid>
+
+        <StackLayout Grid.Row="1">
+            <Grid HorizontalOptions="Center" Margin="20,0,20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="عضو جديد" Clicked="Button_Clicked_2" Grid.Column="0" HorizontalOptions="Fill" Margin="20,10" FontAttributes="Bold" BorderColor="Yellow" TextColor="White" BorderRadius="5" BorderWidth="0.5" />
+                <Button Text="دخول الأعضاء" Clicked="Button_Clicked_3" Grid.Column="1" HorizontalOptions="Fill" FontAttributes="Bold" Margin="20,10" BorderColor="Yellow" TextColor="White" BorderRadius="5" BorderWidth="0.5"/>
+            </Grid>
+            <Button Text="تسجيل الشركات" Clicked="Button_Clicked_4" HorizontalOptions="Fill" FontAttributes="Bold" Margin="40,10,40,10" BorderColor="Yellow" TextColor="White" BorderRadius="5" BorderWidth="0.5"/>
+            <Grid HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="عربى" Clicked="Button_Clicked" Grid.Column="0" HorizontalOptions="Fill" Margin="40,10" FontAttributes="Bold" BorderColor="Yellow" TextColor="White" BorderRadius="5" BorderWidth="0.5"/>
+                <Button Text="English" Clicked="Button_Clicked_1" Grid.Column="1" HorizontalOptions="Fill" Margin="40,10" FontAttributes="Bold" BorderColor="Yellow" TextColor="White" BorderRadius="5" BorderWidth="0.5"/>
+            </Grid>
+        </StackLayout>
+
+        <Grid Grid.Row="2" BackgroundColor="Yellow">
+            <Label HorizontalOptions="Fill" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="32" Text="تصفح العروض"/>
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Grid.GestureRecognizers>
+        </Grid>
+    </Grid>
+
+</ContentPage>

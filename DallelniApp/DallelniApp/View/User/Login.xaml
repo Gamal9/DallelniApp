@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False" FlowDirection="RightToLeft"
+             x:Class="DallelniApp.View.Login">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.09*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="previous.png" HorizontalOptions="Center" Aspect="AspectFit" Margin="5,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label HorizontalOptions="Fill" FontAttributes="Bold" Grid.Column="1" TextColor="Yellow" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="32" Text="دخول الأعضاء"/>
+        </Grid>
+        <Grid Grid.Row="1" BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackLayout Margin="10" Grid.Row="0">
+                <Frame CornerRadius="5" BorderColor="Black" Padding="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Grid.Column="0" x:Name="Lbl1"/>
+                        <Entry Placeholder="البريد الإلكترونى" Grid.Column="1" x:Name="EntryEmail" PlaceholderColor="LightGray"  HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="5" BorderColor="Black" Padding="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="*" TextColor="Red" HorizontalOptions="Fill" HorizontalTextAlignment="Center" Grid.Column="0" x:Name="Lbl2"/>
+                        <Entry Placeholder="كلمة المرور" Grid.Column="1" x:Name="EntryPassword" PlaceholderColor="LightGray"  HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <StackLayout Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="نسيت كلمة المرور؟" TextColor="Red" Grid.Column="0"/>
+                    <StackLayout Orientation="Horizontal" Grid.Column="2">
+                        <Label Text="تذكرنى"/>
+                        <Switch IsToggled="True"/>
+                    </StackLayout>
+                </Grid>
+                <Button Padding="0,30" BackgroundColor="Black" TextColor="Yellow" HorizontalOptions="Center" />
+            </StackLayout>
+
+        </Grid>
+    </Grid>
+</ContentPage>

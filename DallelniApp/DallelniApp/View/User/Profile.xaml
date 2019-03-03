@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Padding="0,11" BackgroundColor="Black"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Title="حسابى" Icon="manUser.png"
+             FlowDirection="RightToLeft" x:Class="DallelniApp.View.User.Profile">
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.09*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" BackgroundColor="Black" FlowDirection="RightToLeft">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="list.png" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="loupe.png" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit"/>
+            </Grid>
+            <Image Aspect="AspectFit" Grid.Column="1" Source="logo-EN-AR-2.png" HorizontalOptions="Fill" VerticalOptions="Center"/>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Picker SelectedIndex="0" Grid.Column="0" BackgroundColor="Black" Title="المدن" TextColor="White" HorizontalOptions="Fill">
+                    <Picker.Items>
+                        <x:String>جدة</x:String>
+                        <x:String>الدمام</x:String>
+                        <x:String>مكة</x:String>
+                        <x:String>المدينة</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Image Aspect="AspectFit" Grid.Column="1" Source="arrowDown.png" HorizontalOptions="Start" VerticalOptions="Center"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label Text="Mohammed Abdulla" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Grid>
+
+            <StackLayout Grid.Row="1">
+                <StackLayout>
+                    <Grid BackgroundColor="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="عروض تم الأستفادة منها" Grid.Column="0" HorizontalOptions="Start" TextColor="White"/>
+                        <Image x:Name="ImgMinus1" Source="arrowDown.png" Aspect="AspectFit" Grid.Column="1" VerticalOptions="Center" Parent="5,0"/>
+                    </Grid>
+                    <ListView IsVisible="False" HasUnevenRows="False" x:Name="list">
+                        <ListView.Header>
+                            <Grid HorizontalOptions="Fill">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" HorizontalOptions="Fill">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="3" Text="العرض" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                    <Label Grid.Column="2" Text="مقدم العرض" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                    <Label Grid.Column="1" Text="مرات الأستخدام" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                    <Label Grid.Column="0" Text="مرات متبقية" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                </Grid>
+                                <Label Grid.Row="1" HeightRequest="3" BackgroundColor="Yellow" HorizontalOptions="Fill"/>
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid x:Name="Tbl1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="3" Text="{Binding CountBack}" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                        <Label Grid.Column="2" Text="{Binding Count}" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                        <Label Grid.Column="1" Text="{Binding Restaurant}" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                        <Label Grid.Column="0" Text="{Binding Offer}" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout>
+                    <Grid BackgroundColor="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="معلوماتى الشخصية" Grid.Column="0" HorizontalOptions="Start" TextColor="White"/>
+                        <Image x:Name="ImgMinus2" Source="arrowDown.png" Aspect="AspectFit" Grid.Column="1" VerticalOptions="Center" Parent="5,0"/>
+                    </Grid>
+                    <Grid x:Name="Tbl2" IsVisible="False">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="3" Text="Mohmamed Abdulla" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="2" Text="Sample Text" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="1" Text="Sample Text" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                        <Label Grid.Column="0" Text="Sample Text" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                    </Grid>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+
+        </Grid>
+    </Grid>
+
+</ContentPage>

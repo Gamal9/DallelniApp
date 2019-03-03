@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions" FlowDirection="RightToLeft"
+             x:Class="DallelniApp.View.SelectedItemPage">
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.09*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" BackgroundColor="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="previous.png" HorizontalOptions="Center" Aspect="AspectFit" Margin="5,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Aspect="AspectFit" Grid.Column="1" Source="logo-EN-AR-2.png" HorizontalOptions="Fill" VerticalOptions="Center"/>
+        </Grid>
+        
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <cv:CarouselViewControl Grid.Row="0" x:Name="list" ItemsSource="{Binding Imgs}" HeightRequest="300" ShowIndicators="True" IndicatorsShape="Circle" IndicatorsTintColor="LightGray" CurrentPageIndicatorTintColor="OrangeRed">
+                        <cv:CarouselViewControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding .}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </cv:CarouselViewControl.ItemTemplate>
+                    </cv:CarouselViewControl>
+                    <StackLayout Grid.Row="1">
+                        <Label Text="{Binding ItemTxt}"/>
+                        <Label HeightRequest="0.1" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Start"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="150 تم شراؤها" BackgroundColor="Yellow" VerticalOptions="Center"/>
+                                <Label Text="خصم 50%" BackgroundColor="Yellow" VerticalOptions="Center"/>
+                            </StackLayout>
+                            <Label Grid.Column="1" Text="العرض سارى حتى 01/01/2020" FontSize="Micro"/>
+                        </Grid>
+                        <Label HeightRequest="0.1" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Start"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label TextDecorations="Strikethrough" FontAttributes="Italic" VerticalOptions="Center" TextColor="Gray" Style="{DynamicResource NameStyle}" Text="{Binding MainPrice}" FontSize="Micro" HorizontalOptions="Start"/>
+                            <Label TextColor="Red" Style="{DynamicResource NameStyle}" VerticalOptions="Center" Text="{Binding FinalPrice}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+                        </StackLayout>
+                        <Label HeightRequest="0.1" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Start"/>
+                        <StackLayout>
+                            <Label Text="التفاصيل :"/>
+                            <Label Text="{Binding Desecription}" HorizontalTextAlignment="Start"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="عدد مرات الإستخدام :"/>
+                            <Label Text="لا محدود" TextColor="Red" HorizontalTextAlignment="Start"/>
+                        </StackLayout>
+                        <Label HeightRequest="0.1" BackgroundColor="Black" HorizontalOptions="Fill" VerticalOptions="Start"/>
+                        
+                    </StackLayout>
+                    
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+    
+</ContentPage>

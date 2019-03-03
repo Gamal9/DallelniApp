@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="RightToLeft"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Padding="0,11" BackgroundColor="Black"
+             xmlns:controls="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView" Title="شركائنا" Icon="handshake.png"
+             x:Class="DallelniApp.View.PartnerPage">
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.09*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" BackgroundColor="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="list.png" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="loupe.png" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit"/>
+            </Grid>
+            <Image Aspect="AspectFit" Grid.Column="1" Source="logo-EN-AR-2.png" HorizontalOptions="Fill" VerticalOptions="Center"/>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Picker SelectedIndex="0" Grid.Column="0" BackgroundColor="Black" Title="المدن" TextColor="White" HorizontalOptions="Fill">
+                    <Picker.Items>
+                        <x:String>جدة</x:String>
+                        <x:String>الدمام</x:String>
+                        <x:String>مكة</x:String>
+                        <x:String>المدينة</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Image Aspect="AspectFit" Grid.Column="1" Source="arrowDown.png" HorizontalOptions="Start" VerticalOptions="Center"/>
+            </Grid>
+
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                <StackLayout>
+                    <Grid BackgroundColor="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="" Aspect="AspectFit" Grid.Column="0" Parent="5,0"/>
+                        <Label Text="مطاعم ومقاهى" Grid.Column="1" HorizontalOptions="Start" TextColor="White"/>
+                        <Image x:Name="ImgMinus1" Source="arrowDown.png" Aspect="AspectFit" Grid.Column="2" VerticalOptions="Center" Parent="5,0"/>
+                    </Grid>
+                    <controls:FlowListView FlowColumnCount="4"  x:Name="list1" HeightRequest="145" HasUnevenRows="False" IsVisible="False">
+                        <controls:FlowListView.FlowColumnTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding .}"/>
+                            </DataTemplate>
+                        </controls:FlowListView.FlowColumnTemplate>
+                    </controls:FlowListView>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout>
+                    <Grid BackgroundColor="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="" Aspect="AspectFit" Grid.Column="0" Parent="5,0"/>
+                        <Label Text="جمال وسبا" Grid.Column="1" HorizontalOptions="Start" TextColor="White"/>
+                        <Image x:Name="ImgMinus2" Source="arrowDown.png" Aspect="AspectFit" Grid.Column="2" VerticalOptions="Center" Parent="5,0"/>
+                    </Grid>
+                    <controls:FlowListView FlowColumnCount="4"  x:Name="list2" HeightRequest="145" HasUnevenRows="False" IsVisible="False">
+                        <controls:FlowListView.FlowColumnTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding .}"/>
+                            </DataTemplate>
+                        </controls:FlowListView.FlowColumnTemplate>
+                    </controls:FlowListView>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout>
+                    <Grid BackgroundColor="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="" Aspect="AspectFit" Grid.Column="0" Parent="5,0"/>
+                        <Label Text="صحة وجمال" Grid.Column="1" HorizontalOptions="Start" TextColor="White"/>
+                        <Image x:Name="ImgMinus3" Source="arrowDown.png" Aspect="AspectFit" Grid.Column="2" VerticalOptions="Center" Parent="5,0"/>
+                    </Grid>
+                    <controls:FlowListView FlowColumnCount="4"  x:Name="list3" HasUnevenRows="False" HeightRequest="145" IsVisible="False">
+                        <controls:FlowListView.FlowColumnTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding .}"/>
+                            </DataTemplate>
+                        </controls:FlowListView.FlowColumnTemplate>
+                    </controls:FlowListView>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout>
+                    <Grid BackgroundColor="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="" Aspect="AspectFit" Grid.Column="0" Parent="5,0"/>
+                        <Label Text="أنشطة وترفيه" Grid.Column="1" HorizontalOptions="Start" TextColor="White"/>
+                        <Image x:Name="ImgMinus4" Source="arrowDown.png" Aspect="AspectFit" Grid.Column="2" VerticalOptions="Center" Parent="5,0"/>
+                    </Grid>
+                    <controls:FlowListView FlowColumnCount="4"  x:Name="list4" HeightRequest="145" HasUnevenRows="False" IsVisible="False">
+                        <controls:FlowListView.FlowColumnTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding .}"/>
+                            </DataTemplate>
+                        </controls:FlowListView.FlowColumnTemplate>
+                    </controls:FlowListView>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

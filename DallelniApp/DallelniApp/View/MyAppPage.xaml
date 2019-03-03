@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" FlowDirection="RightToLeft"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Padding="0,11"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView" 
+             xmlns:viewmodel="clr-namespace:DallelniApp.ViewModel" Title="الصفحة الرئيسية" Icon="home.png"
+             x:Class="DallelniApp.View.MyAppPage" BackgroundColor="Black">
+    <ContentPage.BindingContext>
+        <viewmodel:ItemsViewModel/>
+    </ContentPage.BindingContext>
+    
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.09*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" BackgroundColor="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="list.png" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="loupe.png" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit"/>
+            </Grid>
+            <Image Aspect="AspectFit" Grid.Column="1" Source="logo-EN-AR-2.png" HorizontalOptions="Fill" VerticalOptions="Center"/>
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Picker SelectedIndex="0" Grid.Column="0" BackgroundColor="Black" Title="المدن" TextColor="White" HorizontalOptions="Fill">
+                    <Picker.Items>
+                        <x:String>جدة</x:String>
+                        <x:String>الدمام</x:String>
+                        <x:String>مكة</x:String>
+                        <x:String>المدينة</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Image Aspect="AspectFit" Grid.Column="1" Source="arrowDown.png" HorizontalOptions="Start" VerticalOptions="Center"/>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Row="1" Style="{DynamicResource CardStyle}" Padding="0">
+            <flv:FlowListView SeparatorVisibility="None" RefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRunning}" IsPullToRefreshEnabled="True" BackgroundColor="Transparent" SeparatorColor="#DFDFDF" HasUnevenRows="False" RowHeight="400" FlowItemTapped="List_FlowItemTapped" FlowItemsSource="{Binding Items}" x:Name="list"  FlowColumnCount="1" FlowColumnExpand="Proportional" >
+                <flv:FlowListView.FlowColumnTemplate>
+                    <DataTemplate>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" BackgroundColor="Black">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image HorizontalOptions="Center" VerticalOptions="Center" Source="{Binding RestairantImg}" Grid.Column="0" Aspect="AspectFit"/>
+                                <Label TextColor="White" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="1" LineBreakMode="WordWrap" Style="{DynamicResource NameStyle}" Text="{Binding RestairantTitle}" FontSize="Small" FontAttributes="Bold" />
+                                <Label x:Name="LblDis" TextColor="White" Text="{Binding Discound}" FontSize="30" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="Center"/>
+                            </Grid>
+                            <Image Grid.Row="1" x:Name="ImgTitle" Aspect="AspectFill" Source="{Binding MainImage}"/>
+                            <Grid Grid.Row="2" Padding="5,0" BackgroundColor="Yellow">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.8*"/>
+                                    <RowDefinition Height="0.8*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" HorizontalOptions="Start" Padding="2" VerticalOptions="Center">
+                                    <Label TextColor="Black" HorizontalTextAlignment="Start" Style="{DynamicResource NameStyle}" Text="{Binding ItemTxt}" FontSize="Small" HorizontalOptions="Start"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" HorizontalOptions="Start" Padding="2" VerticalOptions="Center">
+                                    <Label TextColor="LightGray" HorizontalTextAlignment="Start" Style="{DynamicResource NameStyle}" Text="{Binding Desecription}" FontSize="Micro" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                </StackLayout>
+                                <Grid Grid.Row="2" Padding="2" VerticalOptions="Center" HorizontalOptions="Fill">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0" HorizontalOptions="Start" Orientation="Horizontal">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label TextDecorations="Strikethrough" FontAttributes="Italic" VerticalOptions="Center" TextColor="Gray" Style="{DynamicResource NameStyle}" Text="{Binding MainPrice}" FontSize="Micro" HorizontalOptions="Start"/>
+                                            <Label TextColor="Red" Style="{DynamicResource NameStyle}" VerticalOptions="Center" Text="{Binding FinalPrice}" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                        </StackLayout>
+                                        <Label TextColor="Red" Style="{DynamicResource NameStyle}" VerticalOptions="Center" Text="ريال فقط" FontSize="Small" HorizontalOptions="Start"/>
+                                    </StackLayout>
+                                    <Button Grid.Column="1" BackgroundColor="Black" TextColor="White" Text="تفاصيل العرض" HorizontalOptions="End"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </flv:FlowListView.FlowColumnTemplate>
+            </flv:FlowListView>
+            <ActivityIndicator VerticalOptions="Center" HorizontalOptions="Center" x:Name="Activ"/>
+        </Grid>
+    </Grid>
+</ContentPage>

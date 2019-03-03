@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" FlowDirection="RightToLeft"
+             x:Class="DallelniApp.View.User.CompanyRegistration" Padding="7,0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.09*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" BackgroundColor="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="previous.png" HorizontalOptions="Center" Aspect="AspectFit" Margin="5,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label HorizontalOptions="Fill" FontAttributes="Bold" Grid.Column="1" TextColor="Yellow" HorizontalTextAlignment="Center" VerticalOptions="Center" FontSize="32" Text="تسجيل الشركات"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>    
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label HorizontalTextAlignment="Center" VerticalOptions="Center" Text="يرجى الضغط على الأيقونة أدناه وتحميل لوحة التحكم الخاصة بالشركات للتسجيل عبرها وتقديم العروض الخاصة بك" HorizontalOptions="Center"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <ImageButton CornerRadius="10" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Source="iconfile.png"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>

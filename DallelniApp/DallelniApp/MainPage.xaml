@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DallelniApp" BarTextColor="Orange"
+            xmlns:view="clr-namespace:DallelniApp.View" BackgroundColor="Black" BarBackgroundColor="Black" 
+            xmlns:user="clr-namespace:DallelniApp.View.User" NavigationPage.HasNavigationBar="False" NavigationPage.HasBackButton="False" 
+             x:Class="DallelniApp.MainPage">
+
+    <view:MyAppPage/>
+    <view:PartnerPage/>
+    <view:WalletPage/>
+    <user:Profile/>
+
+</TabbedPage>
